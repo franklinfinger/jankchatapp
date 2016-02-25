@@ -73,6 +73,27 @@ getChats: function() {
         console.log("error, err");
       }
     });
+
+
+  },
+  addChats: function(newChat) {
+    $.ajax({
+      url: myChat.url,
+      method: 'POST',
+      data: newChat,
+      success: function (response) {
+        myChat.getChats();
+      },
+      error: function(err) {
+        console.log("error, err");
+      }
+    });
+  },
+
+
+  deleteChats: function(idx)
+    chats.splice(idx, 1);
+
   },
   // userLoggedIn: function() {
   //   var user = data.username;
