@@ -2,8 +2,7 @@ var templates {
   enterChat: [
     '<div class="enter-msg-container">',
       '<div class="enter-msg-wrapper">',
-        '<p class="enter-msg">',
-          '<%= message %>',
+        '<input type="text" value="<%= message %>" class="enter-msg" placeholder="enter message">',
         '</p>',
       '</div>',
     '</div>',
