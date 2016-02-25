@@ -13,7 +13,7 @@ var myChat = {
 
   // initStyling
   initStyling: function() {
-    myChat.addAllChats();
+    myChat.addAllChatsToDom();
     myChat.getChats();
   },
 
@@ -26,7 +26,7 @@ submitChat: function(event) {
   event.preventDefault();
   var newChat = myChat.getChatFromDom();
   console.log(newChat);
-  myChat.addChat(newChat);
+  myChat.addChats(newChat);
   $('input').val('');
 },
 
@@ -41,7 +41,7 @@ getChatFromDom: function() {
 
 addAllChatsToDom: function(chatsArr) {
   $('.post-msg-container').html('');
-  _.each(chatsArr function(el) {
+  _.each(chatsArr, function(el) {
     var tmpl = _.templates(templates.postChat);
     $('.post-msg-container').append(tmpl(el));
   });
