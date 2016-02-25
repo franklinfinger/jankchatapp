@@ -21,13 +21,21 @@ var myChat = {
   initEvents: function() {
 
   // CRUD events
+addAllChatsToDom: function(chatsArr) {
+  $('.post-msg-container').html('');
+  _.each(chatsArr function(el) {
+    var tmpl = _.templates(templates.postChat);
+    $('.post-msg-container').append(tmpl(el));
+  });
+},
+
   getChats: function() {
     $.ajax({
       url: myChat.url,
       method: 'GET',
       success: function(chats) {
         console.log(chats);
-        myChat.addAllChats(chats);
+        myChat.addAllChatsToDom(chats);
       },
       error: function(err) {
         console.log(err);
