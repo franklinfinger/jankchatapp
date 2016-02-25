@@ -19,6 +19,6 @@ postChat: [
         '<%= postedMessage %></p>',
     '</div>',
   '</div>'
-].join[""];
+].join("");
 
 } // end of templates
