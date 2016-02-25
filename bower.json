@@ -1,0 +1,22 @@
+{
+  "name": "jankchatapp",
+  "homepage": "https://github.com/franklinfinger/jankchatapp",
+  "authors": [
+    "Justin Lock"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1",
+    "underscore": "^1.8.3"
+  }
+}
