@@ -19,8 +19,26 @@ var myChat = {
 
   // initEvents
   initEvents: function() {
+    $('form').on('submit', myChat.submitChat);
+  },
 
-  // CRUD events
+submitChat: function(event) {
+  event.preventDefault();
+  var newChat = myChat.getChatFromDom();
+  console.log(newChat);
+  myChat.addChat(newChat);
+  $('input').val('');
+},
+
+getChatFromDom: function() {
+  var username = $('input[name="login"]').val();
+  var content = $('.enter-msg').val();
+  return {
+    username: username,
+    message: message
+  }
+},
+
 addAllChatsToDom: function(chatsArr) {
   $('.post-msg-container').html('');
   _.each(chatsArr function(el) {
@@ -29,18 +47,18 @@ addAllChatsToDom: function(chatsArr) {
   });
 },
 
-  getChats: function() {
-    $.ajax({
-      url: myChat.url,
-      method: 'GET',
-      success: function(chats) {
-        console.log(chats);
-        myChat.addAllChatsToDom(chats);
-      },
-      error: function(err) {
-        console.log(err);
-      }
-    });
+getChats: function() {
+  $.ajax({
+    url: myChat.url,
+    method: 'GET',
+    success: function(chats) {
+      console.log(chats);
+      myChat.addAllChatsToDom(chats);
+    },
+    error: function(err) {
+      console.log(err);
+    }
+  });
 
   },
   addChats: function(newChat) {
@@ -56,10 +74,8 @@ addAllChatsToDom: function(chatsArr) {
       }
     });
   },
-
-  
-  deleteChats: function(idx)
-    chats.splice(idx, 1);
-  },
+  // userLoggedIn: function() {
+  //   var user = data.username;
+  // }
 
 } // end of myChat
