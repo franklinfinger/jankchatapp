@@ -12,18 +12,21 @@ var myChat = {
 
   // initStyling
   initStyling: function() {
-    myChat.addAllPosts();
-  }, // end of initStyling
+    myChat.addAllChats();
+  },
 
   // initEvents
   initEvents: function() {
 
+  // CRUD events
   getChats: function() {
     return chats;
   },
   addChats: function(newChat) {
-
-  }
-  } // end of initEvents
+    chats.push(newChat);
+  },
+  deleteChats: function(idx)
+    chats.splice(idx, 1);
+  },
 
 } // end of myChat
