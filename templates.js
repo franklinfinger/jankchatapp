@@ -1,9 +1,8 @@
 var templates {
   enterChat: [
-        '<p class="enter-msg">',
-          '<%= message %>',
-        '</p>',
-      '</div>',
+    '<div class="enter-msg-wrapper">'
+      '<input type="text" value="" class="enter-msg" placeholder="enter message">'
+    '</div>'
 ].join("");
 
 postChat: [
