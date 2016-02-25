@@ -4,6 +4,7 @@ $(document).ready(function() {
 
 // myChat main Object calling initStyling & initEvents
 var myChat = {
+  url: 'http://tiny-tiny.herokuapp.com/collections/jankChatApp',
   init: function() {
     myChat.initStyling();
     myChat.initEvents();
@@ -13,6 +14,7 @@ var myChat = {
   // initStyling
   initStyling: function() {
     myChat.addAllChats();
+    myChat.getChats();
   },
 
   // initEvents
@@ -20,9 +22,24 @@ var myChat = {
 
   // CRUD events
   getChats: function() {
-    return chats;
+    $.ajax({
+      url: myChat.url,
+      method: 'GET',
+      success: function(chats) {
+        console.log(chats);
+        myChat.addAllChats(chats);
+      },
+      error: function(err) {
+        console.log(err);
+      }
+    });
+
   },
   addChats: function(newChat) {
+    $.ajax({
+      url:
+    });
+
     chats.push(newChat);
   },
   deleteChats: function(idx)
