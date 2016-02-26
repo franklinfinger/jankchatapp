@@ -21,6 +21,9 @@ var myChat = {
   initEvents: function() {
     $('form').on('submit', myChat.submitChat);
     $('section').on('click', '.delete', myChat.deleteChatFromDom);
+    $('.post-msg-wrapper').hover(function() {
+      
+    })
   },
 
   submitChat: function(event) {
