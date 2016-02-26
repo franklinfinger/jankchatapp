@@ -4,10 +4,9 @@ $(document).ready(function() {
 });
 
 
-var chats = [];
 // myChat main Object calling initStyling & initEvents
 var myChat = {
-  url: 'http://tiny-tiny.herokuapp.com/collections/jankchat',
+  url: 'http://tiny-tiny.herokuapp.com/collections/jankchat1',
   init: function() {
     myChat.initStyling();
     myChat.initEvents();
@@ -29,20 +28,20 @@ var myChat = {
 
     })
   },
-// prompt user for username
-// // set username
-// function getUsernameFromLogin() {
-//   var username = prompt('Enter username?');
-//   localStorage.setItem('login', username);
-//   getUsernameFromStorage();
-// }
-// function getUsernameFromStorage() {
-//   var retrievedUsername = localStorage.getItem('login');
-// }
+
+// set username
+ getUsernameFromLogin: function () {
+  var EnterUsername = prompt('Enter username?');
+  localStorage.setItem('login', EnterUsername);
+  myChat.getUsernameFromStorage();
+},
+
+ getUsernameFromStorage: function() {
+  return localStorage.getItem('login');
+},
 
   submitChat: function(event) {
     event.preventDefault();
-
     var newChat = myChat.getChatFromDom();
     console.log(newChat);
     myChat.addChats(newChat);
@@ -53,10 +52,10 @@ var myChat = {
     // var username = prompt('Login here');
     // var username = $('input[name="login"]').val();
     var content = $('.enter-msg').val();
-    // localStorage.setItem(username);
-    console.log(content);
+    var username = myChat.getUsernameFromStorage();
+    console.log(username);
     return {
-      // username: username,
+      username: username,
       message: content
     }
   },

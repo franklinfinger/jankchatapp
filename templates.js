@@ -10,8 +10,9 @@ var templates = {
 
 postChat: [
     // <!-- add date of message? day and time -->
-    // '<h3><%= username %></h3>',
     '<div class="post-msg-wrapper">',
+    '<h4><%= username %></h4>',
+    '<span class="time">7:48pm</span>',
       '<p class="post-msg">',
         '<%= message %></p>',
     '</div>',
