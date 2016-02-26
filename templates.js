@@ -2,8 +2,7 @@ var templates = {
   enterChat: [
     '<div data-chatid="<%= _id %>" class="enter-msg-wrapper">',
       '<form>'
-      '<input type="text" value="" class="enter-msg" placeholder="enter message">',
-      '<%= message %>',
+      '<input type="text" value="<%= message %>" class="enter-msg" placeholder="enter message">',
       '</form>',
     '</div>'
 ].join("");
