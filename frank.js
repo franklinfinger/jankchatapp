@@ -9,7 +9,7 @@ deleteChatFromDom: function (event) {
 
 
 deleteChats: function deleteChats(postId) {
-    console.log("http://tiny-tiny.herokuapp.com/jankChatApp/posts" + '/' + chatId);
+    console.log('http://tiny-tiny.herokuapp.com/collections/<collectionName>' + '/' + chatId);
     $.ajax({
       url: myChat.url + '/' + chatId,
       method: "DELETE",
@@ -19,6 +19,18 @@ deleteChats: function deleteChats(postId) {
     });
   },
 
+//delete event
+deleteChatFromDom: function (event) {
+    var chatId = $(this).closest("post-msg-container").data('chatid');
+    myChat.deleteChats(chatId);
+    myChat.addAllChatsToDom();
+  },
+
+
+
+//place this in the initEvents: function()
+
+$('section').on('click', '.delete', myBlog.deleteChatFromDom);
 
 
 
