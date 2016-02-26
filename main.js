@@ -60,6 +60,8 @@ var myChat = {
     }
   },
 
+  // setInterval: function(myChat.addAllChatsToDom(), 1000 );,
+
   addAllChatsToDom: function(chatsArr) {
     // chatsArr.preventDefault();
     $('.post-msg-container').html('');
@@ -67,6 +69,7 @@ var myChat = {
     _.each(chatsArr, function(el) {
       var tmpl = _.template(templates.postChat);
       $('.post-msg-container').append(tmpl(el));
+      // myChat.setInterval();
     });
   },
 
