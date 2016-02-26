@@ -23,10 +23,10 @@ var myChat = {
   // initEvents
   initEvents: function() {
     $('form').on('submit', myChat.submitChat);
-    $('section').on('click', '.delete', myChat.deleteChatFromDom);
-    $('.post-msg-wrapper').hover(function() {
-
-    })
+    $('.post-msg-container').on('click', '.delete-chat', myChat.deleteChatFromDom);
+    // $('.post-msg-wrapper').hover(function() {
+    //
+    // })
   },
 
 // set username
@@ -63,7 +63,7 @@ var myChat = {
   addAllChatsToDom: function(chatsArr) {
     // chatsArr.preventDefault();
     $('.post-msg-container').html('');
-    console.log("chats array: ", chatsArr);
+    // console.log("chats array: ", chatsArr);
     _.each(chatsArr, function(el) {
       var tmpl = _.template(templates.postChat);
       $('.post-msg-container').append(tmpl(el));
@@ -72,7 +72,8 @@ var myChat = {
 
   //delete event
   deleteChatFromDom: function (event) {
-      var chatId = $(this).closest("post-msg-container").data('chatid');
+      window.glob = $(this);
+      var chatId = $(this).closest(".post-msg-wrapper").data('chatid');
       myChat.deleteChats(chatId);
       myChat.addAllChatsToDom();
   },
@@ -105,16 +106,17 @@ var myChat = {
     });
   },
 
-  deleteChats: function deleteChats(postId) {
-      console.log('http://tiny-tiny.herokuapp.com/collections/jankchat' + '/' + chatId);
+  deleteChats: function deleteChats(chatId) {
+      console.log('http://tiny-tiny.herokuapp.com/collections/jankchat1' + '/' + chatId);
       $.ajax({
         url: myChat.url + '/' + chatId,
         method: "DELETE",
-        success: function (response) {
+        success: function (data) {
+          console.log(data);
           myChat.getChats();
         }
       });
-    },
+    }
 
 
 
