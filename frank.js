@@ -18,3 +18,11 @@ deleteChats: function deleteChats(postId) {
       }
     });
   },
+
+
+
+
+
+*** USER name *****
+var alert = prompt("Enter User Name")
+sessionStorage.setItem('key', 'value');

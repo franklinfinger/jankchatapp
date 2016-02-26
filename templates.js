@@ -1,12 +1,12 @@
 var templates = {
   enterChat: [
     '<div data-chatid="<%= _id %>" class="enter-msg-wrapper">',
-      '<form>',
+      '<form>'
       '<input type="text" value="" class="enter-msg" placeholder="enter message">',
       '<%= message %>',
       '</form>',
     '</div>'
-].join(""),
+].join("");
 
 postChat: [
     // <!-- add date of message? day and time -->
@@ -15,6 +15,6 @@ postChat: [
       '<p class="post-msg">',
         '<%= postedMessage %></p>',
     '</div>',
-].join("")
+].join("");
 
 } // end of templates

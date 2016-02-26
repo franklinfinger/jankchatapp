@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 // myChat main Object calling initStyling & initEvents
 var myChat = {
-  url: 'http://tiny-tiny.herokuapp.com/collections/%3CcollectionName%3E',
+  url: 'http://tiny-tiny.herokuapp.com/jankChatApp/chats',
   init: function() {
     myChat.initStyling();
     myChat.initEvents();
