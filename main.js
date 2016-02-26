@@ -2,9 +2,11 @@ $(document).ready(function() {
   myChat.init();
 });
 
+
+var chats = [];
 // myChat main Object calling initStyling & initEvents
 var myChat = {
-  url: 'http://tiny-tiny.herokuapp.com/collections/<collectionName>',
+  url: 'http://tiny-tiny.herokuapp.com/collections/jankchat',
   init: function() {
     myChat.initStyling();
     myChat.initEvents();
@@ -14,7 +16,7 @@ var myChat = {
   // initStyling
   initStyling: function() {
     // myChat.addAllChatsToDom();
-    // myChat.getChats();
+    myChat.getChats();
   },
 
   // initEvents
@@ -22,12 +24,15 @@ var myChat = {
     $('form').on('submit', myChat.submitChat);
     $('section').on('click', '.delete', myChat.deleteChatFromDom);
     $('.post-msg-wrapper').hover(function() {
-      
+
     })
   },
 
+// 
+
   submitChat: function(event) {
     event.preventDefault();
+
     var newChat = myChat.getChatFromDom();
     console.log(newChat);
     myChat.addChats(newChat);
@@ -35,11 +40,13 @@ var myChat = {
   },
 
   getChatFromDom: function() {
+    // var username = prompt('Login here');
     // var username = $('input[name="login"]').val();
     var content = $('.enter-msg').val();
+    // localStorage.setItem(username);
     console.log(content);
     return {
-      // username: username,
+      username: username,
       message: content
     }
   },
@@ -47,8 +54,9 @@ var myChat = {
   addAllChatsToDom: function(chatsArr) {
     // chatsArr.preventDefault();
     $('.post-msg-container').html('');
+    console.log("chats array: ", chatsArr);
     _.each(chatsArr, function(el) {
-      var tmpl = _.templates(templates.postChat);
+      var tmpl = _.template(templates.postChat);
       $('.post-msg-container').append(tmpl(el));
     });
   },
@@ -89,7 +97,7 @@ var myChat = {
   },
 
   deleteChats: function deleteChats(postId) {
-      console.log('http://tiny-tiny.herokuapp.com/collections/<collectionName>' + '/' + chatId);
+      console.log('http://tiny-tiny.herokuapp.com/collections/jankchat' + '/' + chatId);
       $.ajax({
         url: myChat.url + '/' + chatId,
         method: "DELETE",
