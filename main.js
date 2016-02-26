@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 // myChat main Object calling initStyling & initEvents
 var myChat = {
-  url: 'http://tiny-tiny.herokuapp.com/jankChatApp/chats',
+  url: 'http://tiny-tiny.herokuapp.com/collections/%3CcollectionName%3E',
   init: function() {
     myChat.initStyling();
     myChat.initEvents();
@@ -91,10 +91,7 @@ getChats: function() {
   },
 
 
-  deleteChats: function(idx)
-    chats.splice(idx, 1);
 
-  },
   // userLoggedIn: function() {
   //   var user = data.username;
   // }
