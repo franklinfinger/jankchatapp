@@ -18,6 +18,7 @@ var myChat = {
   initStyling: function() {
     // myChat.addAllChatsToDom();
     myChat.getChats();
+    myChat.getUsernameFromLogin();
   },
 
   // initEvents
@@ -28,8 +29,16 @@ var myChat = {
 
     })
   },
-
-// 
+// prompt user for username
+// // set username
+// function getUsernameFromLogin() {
+//   var username = prompt('Enter username?');
+//   localStorage.setItem('login', username);
+//   getUsernameFromStorage();
+// }
+// function getUsernameFromStorage() {
+//   var retrievedUsername = localStorage.getItem('login');
+// }
 
   submitChat: function(event) {
     event.preventDefault();
@@ -47,7 +56,7 @@ var myChat = {
     // localStorage.setItem(username);
     console.log(content);
     return {
-      username: username,
+      // username: username,
       message: content
     }
   },
