@@ -1,3 +1,4 @@
+// this is a comment
 $(document).ready(function() {
   myChat.init();
 });
