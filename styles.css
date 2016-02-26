@@ -46,7 +46,6 @@ div.main-container {
   margin: 0 auto; }
 
 div.post-msg-container {
-  position: relative;
   width: 100%; }
   div.post-msg-container :hover {
     background-color: #eee;
@@ -60,14 +59,15 @@ div.post-msg-container {
     top: 10px;
     left: 600px; }
 
-div.post-msg-wrapper p {
-  margin: 0;
-  padding: 3px 0 10px 10px;
-  font-weight: 300; }
-
-div.post-msg-wrapper span.time {
-  color: #aaa;
-  font-size: 15px; }
+div.post-msg-wrapper {
+  position: relative; }
+  div.post-msg-wrapper p {
+    margin: 0;
+    padding: 3px 0 10px 10px;
+    font-weight: 300; }
+  div.post-msg-wrapper span.time {
+    color: #aaa;
+    font-size: 15px; }
 
 div.enter-msg-container {
   margin-top: 10px;

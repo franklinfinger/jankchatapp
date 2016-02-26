@@ -60,7 +60,6 @@ div.main-container {
 }
 
 div.post-msg-container {
-  position: relative;
   width: 100%;
   :hover {
     background-color: #eee;
@@ -79,6 +78,7 @@ div.post-msg-container {
 }
 
 div.post-msg-wrapper {
+  position: relative;
   p {
     margin: 0;
     padding: 3px 0 10px 10px;
