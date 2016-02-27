@@ -1,9 +1,11 @@
 // this is a comment
 $(document).ready(function() {
   myChat.init();
+
 });
 
 
+//setting the chats to show after 2 sec
 // myChat main Object calling initStyling & initEvents
 var myChat = {
   url: 'http://tiny-tiny.herokuapp.com/collections/jankchat1',
@@ -18,6 +20,9 @@ var myChat = {
     // myChat.addAllChatsToDom();
     myChat.getChats();
     myChat.getUsernameFromLogin();
+    //setInterval will load chats ever 2 sec between users
+    setInterval(myChat.getChats, 2000);
+
   },
 
   // initEvents
@@ -60,7 +65,6 @@ var myChat = {
     }
   },
 
-  // setInterval: function(myChat.addAllChatsToDom(), 1000 );,
 
   addAllChatsToDom: function(chatsArr) {
     // chatsArr.preventDefault();
@@ -68,7 +72,8 @@ var myChat = {
     // console.log("chats array: ", chatsArr);
     _.each(chatsArr, function(el) {
       var tmpl = _.template(templates.postChat);
-      $('.post-msg-container').append(tmpl(el));
+      //to get the chat to load in the bottom of the page use prepend
+      $('.post-msg-container').prepend(tmpl(el));
       // myChat.setInterval();
     });
   },

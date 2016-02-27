@@ -24,12 +24,12 @@ deleteChatFromDom: function (event) {
 
 
 
-
 <section>
-  <div id="user-login-data"></div>
+  <div id="user-login"></div>
   <input type="text" id="login-name" />
   <input type="button" id="submitbtn" value="Save Text to Local Storage" />
 </section>
+
 
 $("#submitbtn").click(function () {
     SaveToLocalStorage();
@@ -37,12 +37,12 @@ $("#submitbtn").click(function () {
 
 function SaveToLocalStorage(){
   var username = $("#login-name").val();
-  localStorage.setItem('LocalStorageKey', username);
+  localStorage.setItem('login', username);
   RetrieveFromLocalStorage();
 }
 
 function RetrieveFromLocalStorage() {
   var retrivedValue = 'None';
-  var retrivedValue = localStorage.getItem('LocalStorageKey', retrivedValue);
+  var retrivedValue = localStorage.getItem('login', retrivedValue);
   $("#user-login-data").text(retrivedValue);
 }
