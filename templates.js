@@ -12,7 +12,7 @@ postChat: [
     // <!-- add date of message? day and time -->
     '<div data-chatid="<%= _id %>" class="post-msg-wrapper">',
     '<h4><%= username %></h4>',
-    '<span class="time">7:48pm</span>',
+    '<span class="time"><%= time %></span>',
     '<button class ="delete-chat">Delete</button>',
       '<p class="post-msg">',
         '<%= message %></p>',

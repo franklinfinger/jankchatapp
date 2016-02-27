@@ -21,7 +21,7 @@ var myChat = {
     myChat.getChats();
     myChat.getUsernameFromLogin();
     //setInterval will load chats ever 2 sec between users
-    setInterval(myChat.getChats, 2000);
+    // setInterval(myChat.getChats, 2000);
 
   },
 
@@ -54,14 +54,14 @@ var myChat = {
   },
 
   getChatFromDom: function() {
-    // var username = prompt('Login here');
-    // var username = $('input[name="login"]').val();
     var content = $('.enter-msg').val();
     var username = myChat.getUsernameFromStorage();
+    var time = moment(new Date()).format('LT');
     console.log(username);
     return {
       username: username,
-      message: content
+      message: content,
+      time: time
     }
   },
 
