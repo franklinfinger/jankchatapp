@@ -67,7 +67,8 @@ div.post-msg-wrapper {
     font-weight: 300; }
   div.post-msg-wrapper span.time {
     color: #aaa;
-    font-size: 15px; }
+    font-size: 15px;
+    padding-left: 10px; }
 
 div.enter-msg-container {
   margin-top: 10px;
