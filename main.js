@@ -29,9 +29,6 @@ var myChat = {
   initEvents: function() {
     $('form').on('submit', myChat.submitChat);
     $('.post-msg-container').on('click', '.delete-chat', myChat.deleteChatFromDom);
-    // $('.post-msg-wrapper').hover(function() {
-    //
-    // })
   },
 
 // set username
@@ -69,7 +66,7 @@ var myChat = {
   addAllChatsToDom: function(chatsArr) {
     // chatsArr.preventDefault();
     $('.post-msg-container').html('');
-    // console.log("chats array: ", chatsArr);
+    console.log("chats array: ", chatsArr);
     _.each(chatsArr, function(el) {
       var tmpl = _.template(templates.postChat);
       //to get the chat to load in the bottom of the page use prepend

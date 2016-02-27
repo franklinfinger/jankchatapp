@@ -5,7 +5,7 @@
   }
 }
 
-.hidden {
+#hidden {
   display: none;
 }
 
@@ -14,8 +14,80 @@ body {
   font-family: Helvetica;
 }
 
-div {
-  // border: 1px solid orange;
+// LOGIN FORM //
+div.login-form {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  padding: 15px 25px 0 15px;
+  margin-top: 15px;
+  cursor: default;
+  background-color: #141517;
+  border-radius: 5px;
+  box-shadow: 0px 1px 1px 0px rgba(255, 255, 255, .2), inset 0px 1px 1px 0px rgb(0,0,0);
+  h1, span, input, label {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+  }
+  h1 {
+    line-height: 40px;
+    font-family: 'Myriad Pro', sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    color: #e4e4e4;
+  }
+  input[type=text], input[type=password], input[type=submit] {
+    line-height: 14px;
+    margin: 10px 0;
+    padding: 5px 15px;
+    border: 0;
+    outline: none;
+    font-family: Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 0px 1px 1px rgba(255,255,255, .2);
+    border-radius: 26px;
+    transition: all .15s ease-in-out;
+  }
+  input[type="text"], input[type="password"], .js span {
+    color: #686868;
+    width: 170px;
+    background: #989898;
+    box-shadow: inset 1px 1px 1px 0px rgba(255,255,255, .6);
+    background: linear-gradient(top, #fff 0% #989898 100%);
+  }
+  input[type="text"]:hover, input[type="password"]:hover {
+    box-shadow: inset 1px 1px 1px 0px rgba(255,255,255, .6), 0px 0px 5px rgba(255,255,255, .5);
+  }
+  input[type="text"]:focus, input[type="password"]:focus {
+    background: #e1e1e1;
+    background: linear-gradient(top, #ffffff 0%, #e1e1e1 100%);
+  }
+  input[type="submit"] {
+    float: right;
+    cursor: pointer;
+    color: #445b0f;
+    box-shadow: inset 1px 1px 1px 0px #fff;
+  }
+  input[type="submit"]:hover {
+    box-shadow: inset 1px 1px 3px 0px #fff;
+  }
+  input[type="submit"]:active {
+    box-shadow: none;
+  }
+  input[type="submit"] {
+    background: #a5cd4e;
+    background: linear-gradient(top, #a5cd4e 0%, #6b8f1a 100%);
+  }
+  label {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    color: #e4e4e4;
+  }
 }
 
 header {
@@ -30,7 +102,7 @@ aside {
   display: inline-block;
   width: 20%;
   background-color: #ccc;
-  height: 1000px;
+  height: 600px;
 }
 
 section {
@@ -59,8 +131,10 @@ input.enter-msg {
 }
 
 div.main-container {
-  width: 100%;
+  width: 78%;
   margin: 0 auto;
+  display: inline-block;
+  vertical-align: top;
 }
 
 div.post-msg-container {
