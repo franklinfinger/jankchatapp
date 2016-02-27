@@ -2,7 +2,11 @@
   box-sizing: border-box;
   :focus {
     outline: none;
+  }
 }
+
+.hidden {
+  display: none;
 }
 
 body {

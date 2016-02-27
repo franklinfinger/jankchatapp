@@ -36,7 +36,7 @@ var myChat = {
 
 // set username
  getUsernameFromLogin: function () {
-  var EnterUsername = prompt('Enter username?');
+  var EnterUsername = prompt('Enter username');
   localStorage.setItem('login', EnterUsername);
   myChat.getUsernameFromStorage();
 },
