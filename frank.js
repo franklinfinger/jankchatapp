@@ -26,11 +26,22 @@ var myChat = {
   },
 
   // initEvents
+  // initEvents: function() {
+  //   $('form').on('submit', myChat.submitChat);
+  //   $('.post-msg-container').on('click', '.delete-chat', myChat.deleteChatFromDom);
+  //   $(".login-form").on('submit', myChat.getUsernameFromLogin);
+  // },
+
   initEvents: function() {
-    $('form').on('submit', myChat.submitChat);
+    $('.enter-msg-form').on('submit', myChat.submitChat);
     $('.post-msg-container').on('click', '.delete-chat', myChat.deleteChatFromDom);
-    $(".login-form").on('submit', myChat.getUsernameFromLogin);
+    $('.login-form').on('submit', myChat.getUsernameFromLogin);
+    $('.login-form').on('submit', function() {
+      $('.login-form-container').addClass('hidden');
+      $('.main-container').removeClass('hidden');
+    });
   },
+
 
 // set username
 //  getUsernameFromLogin: function () {
@@ -45,30 +56,41 @@ var myChat = {
 
 
     //***start of login***///
-getUsernameFromDom: function getUsernameFromDom() {
-   var username = $('input[name="username"]').val();
-   var password = $('input[password="password"]').val()
-   return username, password;
-},
-   getUsernameFromStorage: function() {
-   return localStorage.getItem ('username','password');
- },
- getUsernameFromLogin: function (event) {
-   event.preventDefault();
-   var newUsername = myChat.getUsernameFromDom();
-   var newPassword = myChat.getUsernameFromDom();
-   if (newUsername === "" && newPassword === "") {
-     alert("Enter your username & password!");
-   }
-   else {
-   localStorage.setItem('username',newUsername && 'password', newPassword);
-   myChat.displayMainContainer();
-   }
- },
+// getUsernameFromDom: function getUsernameFromDom() {
+//    var username = $('input[name="username"]').val();
+//    var password = $('input[password="password"]').val()
+//    return username, password;
+// },
+//    getUsernameFromStorage: function() {
+//    return localStorage.getItem ('username','password');
+//  },
+//  getUsernameFromLogin: function (event) {
+//    event.preventDefault();
+//    var newUsername = myChat.getUsernameFromDom();
+//    var newPassword = myChat.getUsernameFromDom();
+//    if (newUsername === "" && newPassword === "") {
+//      alert("Enter your username & password!");
+//    }
+//    else {
+//    localStorage.setItem('username',newUsername && 'password', newPassword);
+//    myChat.displayMainContainer();
+//    }
+//  },
+//
+//  displayMainContainer: function (event) {
+//    $(".login-form").addClass('inactive');
+//    $(".main-container").removeClass('inactive');
+// },
 
- displayMainContainer: function (event) {
-   $(".login-form").addClass('inactive');
-   $(".main-container").removeClass('inactive');
+// set username
+getUsernameFromLogin: function () {
+var EnterUsername = $('#username').val();
+localStorage.setItem('login', EnterUsername);
+myChat.getUsernameFromStorage();
+},
+
+getUsernameFromStorage: function() {
+return localStorage.getItem('login');
 },
 
   submitChat: function(event) {
