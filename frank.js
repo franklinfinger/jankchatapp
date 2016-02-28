@@ -128,10 +128,14 @@ return localStorage.getItem('login');
 
   //delete event
   deleteChatFromDom: function (event) {
-      window.glob = $(this);
-      var chatId = $(this).closest(".post-msg-wrapper").data('chatid');
-      myChat.deleteChats(chatId);
-      myChat.addAllChatsToDom();
+      // window.glob = $(this);
+      if (localStorage.getItem('login') === $('#username').val()) {
+        var chatId = $(this).closest(".post-msg-wrapper").data('chatid');
+        myChat.deleteChats(chatId);
+        myChat.addAllChatsToDom();
+      } else {
+        alert('Sorry, only the current user can delete this message.');
+      }
   },
 
   getChats: function() {
