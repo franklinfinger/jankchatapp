@@ -4,8 +4,6 @@ $(document).ready(function() {
 
 });
 
-
-//setting the chats to show after 2 sec
 // myChat main Object calling initStyling & initEvents
 var myChat = {
   url: 'http://tiny-tiny.herokuapp.com/collections/jankchat1',
@@ -13,7 +11,6 @@ var myChat = {
     myChat.initStyling();
     myChat.initEvents();
   },
-
 
   // initStyling
   initStyling: function() {
@@ -25,21 +22,27 @@ var myChat = {
 
   },
 
-  // initEvents
   initEvents: function() {
-    $('form').on('submit', myChat.submitChat);
+    $('.enter-msg-form').on('submit', myChat.submitChat);
     $('.post-msg-container').on('click', '.delete-chat', myChat.deleteChatFromDom);
+    $('.login-form').on('submit', myChat.getUsernameFromLogin);
+    $('.login-form').on('submit', function() {
+      event.preventDefault();
+      myChat.getUsernameFromLogin();
+      $('.login-form-container').hide();
+      $('.main-container').show();
+    });
   },
 
 // set username
- getUsernameFromLogin: function () {
-  var EnterUsername = prompt('Enter username');
-  localStorage.setItem('login', EnterUsername);
-  myChat.getUsernameFromStorage();
+getUsernameFromLogin: function () {
+var EnterUsername = $('#username').val();
+localStorage.setItem('login', EnterUsername);
+myChat.getUsernameFromStorage();
 },
 
- getUsernameFromStorage: function() {
-  return localStorage.getItem('login');
+getUsernameFromStorage: function() {
+return localStorage.getItem('login');
 },
 
   submitChat: function(event) {
@@ -69,18 +72,22 @@ var myChat = {
     console.log("chats array: ", chatsArr);
     _.each(chatsArr, function(el) {
       var tmpl = _.template(templates.postChat);
-      //to get the chat to load in the bottom of the page use prepend
-      $('.post-msg-container').prepend(tmpl(el));
+      //to get the chat to load in the top of the page use append
+      $('.post-msg-container').append(tmpl(el));
       // myChat.setInterval();
     });
   },
 
   //delete event
   deleteChatFromDom: function (event) {
-      window.glob = $(this);
-      var chatId = $(this).closest(".post-msg-wrapper").data('chatid');
-      myChat.deleteChats(chatId);
-      myChat.addAllChatsToDom();
+      // window.glob = $(this);
+      if (localStorage.getItem('login') === $('#username').val()) {
+        var chatId = $(this).closest(".post-msg-wrapper").data('chatid');
+        myChat.deleteChats(chatId);
+        myChat.addAllChatsToDom();
+      } else {
+        alert('Sorry, only the current user can delete this message.');
+      }
   },
 
   getChats: function() {
@@ -122,13 +129,4 @@ var myChat = {
         }
       });
     }
-
-
-
-
-
-  // userLoggedIn: function() {
-  //   var user = data.username;
-  // }
-
 } // end of myChat
