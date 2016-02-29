@@ -15,10 +15,10 @@ var myChat = {
   // initStyling
   initStyling: function() {
     // myChat.addAllChatsToDom();
-    // myChat.getChats();
+    myChat.getChats();
     myChat.getUsernameFromLogin();
     //setInterval will load chats ever 2 sec between users
-    // setInterval(myChat.getChats, 2000);
+    setInterval(myChat.getChats, 2000);
 
   },
 
