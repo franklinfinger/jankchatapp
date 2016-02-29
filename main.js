@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 // myChat main Object calling initStyling & initEvents
 var myChat = {
-  url: 'http://tiny-tiny.herokuapp.com/collections/jankchat1',
+  url: 'http://tiny-tiny.herokuapp.com/collections/jankchat2',
   init: function() {
     myChat.initStyling();
     myChat.initEvents();
@@ -18,7 +18,7 @@ var myChat = {
     // myChat.getChats();
     myChat.getUsernameFromLogin();
     //setInterval will load chats ever 2 sec between users
-    setInterval(myChat.getChats, 2000);
+    // setInterval(myChat.getChats, 2000);
 
   },
 
@@ -73,16 +73,22 @@ return localStorage.getItem('login');
     _.each(chatsArr, function(el) {
       var tmpl = _.template(templates.postChat);
       //to get the chat to load in the top of the page use append
-      $('.post-msg-container').append(tmpl(el));
+      console.log(el);
+      $('.post-msg-container').prepend(tmpl(el));
+
+      $('.post-msg-container').scrollTop($('.post-msg-container')[0].scrollHeight)
       // myChat.setInterval();
     });
+    $('.post-msg-container').scrollTop($('.post-msg-container')[0].scrollHeight)
   },
 
   //delete event
   deleteChatFromDom: function (event) {
       // window.glob = $(this);
-      if (localStorage.getItem('login') === $('#username').val()) {
-        var chatId = $(this).closest(".post-msg-wrapper").data('chatid');
+      var chatId = $(this).closest(".post-msg-wrapper").data('chatid');
+      var loginName = $(this).siblings('h4').text();
+      console.log(loginName);
+      if (localStorage.getItem('login') === loginName) {
         myChat.deleteChats(chatId);
         myChat.addAllChatsToDom();
       } else {
@@ -119,7 +125,7 @@ return localStorage.getItem('login');
   },
 
   deleteChats: function deleteChats(chatId) {
-      console.log('http://tiny-tiny.herokuapp.com/collections/jankchat1' + '/' + chatId);
+      console.log('http://tiny-tiny.herokuapp.com/collections/jankchat2' + '/' + chatId);
       $.ajax({
         url: myChat.url + '/' + chatId,
         method: "DELETE",
