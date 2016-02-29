@@ -133,11 +133,9 @@ div.post-msg-container {
     margin: 0;
     padding: 10px 0 0 10px; }
   div.post-msg-container button.delete-chat {
-    background-color: lightblue;
     position: absolute;
     top: 10px;
-    left: 600px;
-    display: hidden; }
+    left: 600px; }
 
 div.post-msg-wrapper {
   position: relative; }
