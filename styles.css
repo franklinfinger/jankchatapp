@@ -135,7 +135,8 @@ div.post-msg-container {
   div.post-msg-container button.delete-chat {
     position: absolute;
     top: 10px;
-    left: 600px; }
+    left: 600px;
+    display: hidden; }
 
 div.post-msg-wrapper {
   position: relative; }
