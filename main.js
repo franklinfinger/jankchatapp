@@ -29,7 +29,7 @@ var myChat = {
     $('.login-form').on('submit', function() {
       event.preventDefault();
       myChat.getUsernameFromLogin();
-      $('.login-form-container').hide();
+      $('.login-wrapper').hide();
       $('.main-container').show();
     });
   },
