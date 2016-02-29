@@ -22,10 +22,10 @@ body {
 div.login-form-container {
   display: inline-block;
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 300px;
   padding: 15px 25px 0 15px;
-  margin-top: 300px;
+  margin-top: 250px;
   cursor: default;
   background-color: #141517;
   border-radius: 5px;
@@ -36,21 +36,24 @@ div.login-form-container {
     border: 0;
     outline: 0;
   }
+  span {
+    margin-right: 100px;
+  }
   h1 {
-    line-height: 40px;
+    line-height: 50px;
     font-family: 'Myriad Pro', sans-serif;
-    font-size: 22px;
+    font-size: 35px;
     font-weight: normal;
     color: #e4e4e4;
   }
   input[type=text], input[type=password], input[type=submit] {
-    line-height: 14px;
+    line-height: 40px;
     margin: 10px 0;
     padding: 5px 15px;
     border: 0;
     outline: none;
     font-family: Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 18px;
     font-weight: bold;
     text-shadow: 0px 1px 1px rgba(255,255,255, .2);
     border-radius: 26px;
@@ -58,7 +61,7 @@ div.login-form-container {
   }
   input[type="text"], input[type="password"], .js span {
     color: #686868;
-    width: 170px;
+    width: 350px;
     background: #989898;
     box-shadow: inset 1px 1px 1px 0px rgba(255,255,255, .6);
     background: linear-gradient(top, #fff 0% #989898 100%);
@@ -71,7 +74,7 @@ div.login-form-container {
     background: linear-gradient(top, #ffffff 0%, #e1e1e1 100%);
   }
   input[type="submit"] {
-    float: right;
+    // float: right;
     cursor: pointer;
     color: #445b0f;
     box-shadow: inset 1px 1px 1px 0px #fff;
