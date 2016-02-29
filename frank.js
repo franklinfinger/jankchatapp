@@ -37,8 +37,10 @@ var myChat = {
     $('.post-msg-container').on('click', '.delete-chat', myChat.deleteChatFromDom);
     $('.login-form').on('submit', myChat.getUsernameFromLogin);
     $('.login-form').on('submit', function() {
-      $('.login-form-container').addClass('hidden');
-      $('.main-container').removeClass('hidden');
+      event.preventDefault();
+      myChat.getUsernameFromLogin();
+      $('.login-form-container').hide();
+      $('.main-container').show();
     });
   },
 
