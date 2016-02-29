@@ -86,8 +86,8 @@ aside {
   display: inline-block;
   width: 20%;
   background-color: #ccc;
-  height: 652px;
-  margin-top: 62px; }
+  height: 703px;
+  margin-top: 63px; }
 
 section {
   display: inline-block;
@@ -123,7 +123,7 @@ div.post-msg-container {
   overflow-x: hidden;
   overflow-y: scroll;
   height: 652px;
-  margin-top: 63px; }
+  border: 1px solid #ccc; }
   div.post-msg-container :hover {
     background-color: #eee;
     cursor: pointer; }
