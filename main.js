@@ -15,7 +15,7 @@ var myChat = {
   // initStyling
   initStyling: function() {
     // myChat.addAllChatsToDom();
-    myChat.getChats();
+    // myChat.getChats();
     myChat.getUsernameFromLogin();
     //setInterval will load chats ever 2 sec between users
     setInterval(myChat.getChats, 2000);
@@ -37,12 +37,8 @@ var myChat = {
 // set username
 getUsernameFromLogin: function () {
   var EnterUsername = $('#username').val();
-    if(EnterUsername = "justin") {
   localStorage.setItem('login', EnterUsername);
   myChat.getUsernameFromStorage();
-} else {
-  alert('You must enter a username to continue to chat room.');
-}
 },
 
 getUsernameFromStorage: function() {
