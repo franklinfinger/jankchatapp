@@ -114,6 +114,11 @@ div.main-container {
   vertical-align: top; }
 
 div.post-msg-container {
+  border:1px solid black;
+  height: 600px;
+  overflow-y:scroll;
+  overflow-x:hidden;
+
   width: 100%; }
   div.post-msg-container :hover {
     background-color: #eee;

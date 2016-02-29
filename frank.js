@@ -123,7 +123,7 @@ return localStorage.getItem('login');
     _.each(chatsArr, function(el) {
       var tmpl = _.template(templates.postChat);
       //to get the chat to load in the bottom of the page use prepend
-      $('.post-msg-container').prepend(tmpl(el));
+      $('.post-msg-container').append(tmpl(el));
       // myChat.setInterval();
     });
   },
